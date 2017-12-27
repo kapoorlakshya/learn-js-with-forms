@@ -1,0 +1,14 @@
+/* Mixin */
+@mixin vertical-align($position: relative, $transY: "-90%") {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(#{$transY});
+  -ms-transform: translateY(#{$transY});
+  transform: translateY(#{$transY});
+}
+
+#app {
+  margin: auto;
+  max-width: 75%;
+  @include vertical-align();
+}
