@@ -1,5 +1,5 @@
 /* Mixin */
-@mixin vertical-align($position: relative, $transY: "-90%") {
+@mixin vertical-align($position: relative, $transY: "-50%") {
   position: $position;
   top: 50%;
   -webkit-transform: translateY(#{$transY});
@@ -7,8 +7,14 @@
   transform: translateY(#{$transY});
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   margin: auto;
   max-width: 75%;
-  @include vertical-align
+  @include vertical-align($transY: "-100%");
 }
