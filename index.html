@@ -39,7 +39,8 @@
 
         <div class="form-group">
           <label for="email" title="First Name">Email</label>
-          <input type="text" id="email" class="form-control" placeholder="john.smith@locahost" />
+          <input type="text" name="Email" id="email" class="form-control" placeholder="john.smith@locahost" onblur="validateFieldValue(this, 'emailValidationMessage', '@')" />
+          <small id="emailValidationMessage"></small>
         </div>
 
         <div class="form-group">
