@@ -9,8 +9,8 @@ html, body {
   max-width: 75%;
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transform: translateY(-100%); }
+  -webkit-transform: translateY(-90%);
+  -ms-transform: translateY(-90%);
+  transform: translateY(-90%); }
 
 /*# sourceMappingURL=index.css.map */
