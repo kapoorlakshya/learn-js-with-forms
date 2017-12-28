@@ -45,10 +45,14 @@ function validateFields() {
     if (canSubmit) {
         // TODO LK 12/28/17 - clearValidationMessages is not working as expected.
         clearValidationMessages();
+
         let msg = "New user registered successfully!\n\n" +
                 `First Name: ${fName.value}\n` +
                 `Last Name: ${lName.value}\n\n` +
                 `Check your email '${email.value}' for confirmation`;
+
+        // TODO LK 12/28/17 - displayNotification for a successful submission
+        // is not working as expected.
         displayNotification(msg, "green");
         return true;
     }
