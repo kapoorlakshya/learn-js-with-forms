@@ -49,11 +49,11 @@ function validateFields() {
                 `First Name: ${fName.value}\n` +
                 `Last Name: ${lName.value}\n\n` +
                 `Check your email '${email.value}' for confirmation`;
-        alert(msg);
+        displayNotification(msg, "green");
         return true;
     }
     else {
-        displayFixErrorNotification();
+        displayNotification("Fix the errors!", "red");
         return false;
     }
 }
@@ -91,10 +91,13 @@ function confirmEmail() {
 }
 
 // Displays general error in page-messages Div
-function displayFixErrorNotification() {
+function displayNotification(msg, color) {
     let pageMessages = document.getElementById("page-messages");
-    pageMessages.style.color = "red";
-    pageMessages.innerText = "Fix the errors!";
+
+    // Display in user defined color or follow element CSS rule
+    color ? (pageMessages.style.color = color) : "";
+
+    pageMessages.innerText = msg;
 }
 
 // Clear all fields validation messages
