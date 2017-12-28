@@ -6,10 +6,10 @@ function canNotBeBlank(field) {
 // Validate form fields are not blank
 function validateFields() {
     let fName = document.getElementById("first-name");
-    let fNameValidationMsgField = document.getElementById("fname-validation-msg");
     let lName = document.getElementById("last-name");
-    let lNameValidationMsgField = document.getElementById("lname-validation-msg");
     let email = document.getElementById("email-id");
+    let lNameValidationMsgField = document.getElementById("lname-validation-msg");
+    let fNameValidationMsgField = document.getElementById("fname-validation-msg");
     let emailValidationMsgField = document.getElementById("email-validation-msg");
     let canSubmit = true; // All validations passed?
 
@@ -50,6 +50,17 @@ function validateFields() {
     }
 
     return false;
+}
+
+// Clear all fields validation messages
+function clearValidationMessages() {
+    let fNameValidationMsgField = document.getElementById("fname-validation-msg");
+    let lNameValidationMsgField = document.getElementById("lname-validation-msg");
+    let emailValidationMsgField = document.getElementById("email-validation-msg");
+
+    fNameValidationMsgField.innerText = "";
+    lNameValidationMsgField.innerText = "";
+    emailValidationMsgField.innerText = "";
 }
 
 // Validates email contains @
