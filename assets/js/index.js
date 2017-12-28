@@ -1,8 +1,3 @@
-// Returns validation failure message with field name
-function canNotBeBlank(field) {
-    return `${field.name} cannot be blank.`;
-}
-
 // Validate form fields are not blank
 function validateFields() {
     let fName = document.getElementById("first-name");
@@ -42,12 +37,13 @@ function validateFields() {
     }
 
     // Verify email
-    if (confirmEmail() === false) {
+    if (!confirmEmail()) {
         canSubmit = false;
     }
 
     // All checks passed
     if (canSubmit) {
+        // TODO LK 12/28/17 - clearValidationMessages is not working as expected.
         clearValidationMessages();
         let msg = "New user registered successfully!\n\n" +
                 `First Name: ${fName.value}\n` +
@@ -56,8 +52,7 @@ function validateFields() {
         alert(msg);
         return true;
     }
-    else
-    {
+    else {
         displayFixErrorNotification();
         return false;
     }
@@ -89,15 +84,14 @@ function confirmEmail() {
         confirmEmailValidationMsgField.innerText = `${confirmEmailField.name} does not match.`;
         return false;
     }
-    else
-    {
+    else {
         confirmEmailValidationMsgField.innerText = "";
         return true;
     }
 }
 
 // Displays general error in page-messages Div
-function displayFixErrorNotification(){
+function displayFixErrorNotification() {
     let pageMessages = document.getElementById("page-messages");
     pageMessages.style.color = "red";
     pageMessages.innerText = "Fix the errors!";
@@ -117,4 +111,9 @@ function clearValidationMessages() {
     emailValidationMsgField.innerText = "";
     confirmEmailValidationMsgField.innerText = "";
     return true;
+}
+
+// Returns validation failure message with field name
+function canNotBeBlank(field) {
+    return `${field.name} cannot be blank.`;
 }
