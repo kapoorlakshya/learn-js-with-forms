@@ -6,6 +6,11 @@ html, body {
 #app {
   margin: auto;
   max-width: 75%;
-  padding-top: 120px; }
+  padding-top: 120px;
+}
+
+#page-messages {
+  min-height: 40px;
+}
 
 /*# sourceMappingURL=index.css.map */

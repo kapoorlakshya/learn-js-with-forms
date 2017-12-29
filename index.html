@@ -22,7 +22,9 @@
 </head>
 <body>
   <div id="app">
-    <div id="page-messages"></div>
+    <div class="row mx-auto">
+      <div id="page-messages"></div>
+    </div>
     <div class="row mx-auto">
       <h1>Sign Up!</h1>
     </div>
@@ -54,8 +56,8 @@
           <small id="email-confirm-validation-msg"></small>
         </div>
 
-        <button type="submit" class="btn" onclick="return validateFields()">Submit</button>
-        <button class="btn" onclick="return clearValidationMessages()">Clear</button>
+        <button type="submit" class="btn" onclick="validateFields(); return false;">Submit</button>
+        <button class="btn" onclick="clearValidationMessages(); return  false;">Clear</button>
       </form>
     </div>
   </div>

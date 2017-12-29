@@ -43,18 +43,16 @@ function validateFields() {
 
     // All checks passed
     if (canSubmit) {
-        // TODO LK 12/28/17 - clearValidationMessages is not working as expected.
         clearValidationMessages();
 
-        let msg = "New user registered successfully!\n\n" +
-                `First Name: ${fName.value}\n` +
-                `Last Name: ${lName.value}\n\n` +
-                `Check your email '${email.value}' for confirmation`;
+        let newUser = new User(fName.value, lName.value, email.value);
 
-        // TODO LK 12/28/17 - displayNotification for a successful submission
-        // is not working as expected.
-        displayNotification(msg, "green");
-        return true;
+        let msg = "New user registered successfully!\n\n" +
+                `First Name: ${newUser.firstName}\n` +
+                `Last Name: ${newUser.lastName}\n\n` +
+                `Check your email '${newUser.email}' for confirmation`;
+
+        return displayNotification(msg, "green");
     }
     else {
         displayNotification("Fix the errors!", "red");
@@ -102,6 +100,7 @@ function displayNotification(msg, color) {
     color ? (pageMessages.style.color = color) : "";
 
     pageMessages.innerText = msg;
+    return true;
 }
 
 // Clear all fields validation messages
@@ -123,4 +122,11 @@ function clearValidationMessages() {
 // Returns validation failure message with field name
 function canNotBeBlank(field) {
     return `${field.name} cannot be blank.`;
+}
+
+// Class to store user information
+function User(firstName, lastName, email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
 }
