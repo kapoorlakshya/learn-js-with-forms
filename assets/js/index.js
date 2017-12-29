@@ -20,7 +20,7 @@ function validateFields() {
     // does not need to create a String object for ""
     // https://stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript
     if (!fName.value.length > 0) {
-        fNameValidationMsgField.style.color = "red";
+        setTextColor(fNameValidationMsgField, "red");
         fNameValidationMsgField.innerText = canNotBeBlank(fName);
         canSubmit = false;
     } else {
@@ -28,7 +28,7 @@ function validateFields() {
     }
 
     if (!lName.value > 0) {
-        lNameValidationMsgField.style.color = "red";
+        setTextColor(lNameValidationMsgField, "red");
         lNameValidationMsgField.innerText = canNotBeBlank(lName);
         canSubmit = false;
     } else {
@@ -36,7 +36,7 @@ function validateFields() {
     }
 
     if (!email.value.length > 0) {
-        emailValidationMsgField.style.color = "red";
+        setTextColor(emailValidationMsgField, "red");
         emailValidationMsgField.innerText = canNotBeBlank(email);
         canSubmit = false;
     } else {
@@ -73,7 +73,7 @@ function validateEmail(inputField, msgFieldId) {
 
     // Look for @ and only validation when field is not empty
     if (!inputField.value.match(/.+@.+/) && inputField.value.length > 0) {
-        msgArea.style.color = "red";
+        setTextColor(msgArea, "red");
         msgArea.innerText = `${inputField.name} validation failed! '@' was not present.`;
         return true;
     } else {
@@ -89,7 +89,7 @@ function confirmEmail() {
     let confirmEmailValidationMsgField = document.getElementById("email-confirm-validation-msg");
 
     if (confirmEmailField.value !== emailField.value) {
-        confirmEmailValidationMsgField.style.color = "red";
+        setTextColor(confirmEmailValidationMsgField, "red");
         confirmEmailValidationMsgField.innerText = `${confirmEmailField.name} does not match.`;
         return false;
     }
@@ -120,7 +120,7 @@ function displayNotification(msg, color) {
     let pageMessages = document.getElementById("page-messages");
 
     // Display in user defined color or follow element CSS rule
-    color ? (pageMessages.style.color = color) : "";
+    color ? (setTextColor(pageMessages, color)) : "";
 
     pageMessages.innerText = msg;
     return true;
@@ -129,4 +129,8 @@ function displayNotification(msg, color) {
 // Returns validation failure message with field name
 function canNotBeBlank(field) {
     return `${field.name} cannot be blank.`;
+}
+
+function setTextColor(field, color) {
+    field.style.color = color;
 }
