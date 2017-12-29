@@ -3,6 +3,9 @@ function User(firstName, lastName, email) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.fullName = function () {
+        return this.firstName + " " + this.lastName;
+    };
 }
 
 // Validate form fields are not blank
@@ -56,7 +59,8 @@ function validateFields() {
 
         let msg = "New user registered successfully!\n\n" +
                 `First Name: ${newUser.firstName}\n` +
-                `Last Name: ${newUser.lastName}\n\n` +
+                `Last Name: ${newUser.lastName}\n` +
+                `Full Name: ${newUser.fullName()}\n\n` +
                 `Check your email '${newUser.email}' for confirmation`;
 
         return displayNotification(msg, "green");
