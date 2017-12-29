@@ -131,6 +131,7 @@ function canNotBeBlank(field) {
     return `${field.name} cannot be blank.`;
 }
 
+// Method to set CSS color property
 function setTextColor(field, color) {
     field.style.color = color;
 }
