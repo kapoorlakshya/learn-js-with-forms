@@ -1,3 +1,10 @@
+// Class to store user information
+function User(firstName, lastName, email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+}
+
 // Validate form fields are not blank
 function validateFields() {
     let fName = document.getElementById("first-name");
@@ -92,17 +99,6 @@ function confirmEmail() {
     }
 }
 
-// Displays general error in page-messages Div
-function displayNotification(msg, color) {
-    let pageMessages = document.getElementById("page-messages");
-
-    // Display in user defined color or follow element CSS rule
-    color ? (pageMessages.style.color = color) : "";
-
-    pageMessages.innerText = msg;
-    return true;
-}
-
 // Clear all fields validation messages
 function clearValidationMessages() {
     let pageMessages = document.getElementById("page-messages");
@@ -119,14 +115,18 @@ function clearValidationMessages() {
     return true;
 }
 
+// Displays general error in page-messages Div
+function displayNotification(msg, color) {
+    let pageMessages = document.getElementById("page-messages");
+
+    // Display in user defined color or follow element CSS rule
+    color ? (pageMessages.style.color = color) : "";
+
+    pageMessages.innerText = msg;
+    return true;
+}
+
 // Returns validation failure message with field name
 function canNotBeBlank(field) {
     return `${field.name} cannot be blank.`;
-}
-
-// Class to store user information
-function User(firstName, lastName, email) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
 }
